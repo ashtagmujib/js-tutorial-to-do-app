@@ -59,17 +59,22 @@ outputsTab.addEventListener('click', e => {
 
     } 
 
+
     // completed event
-    else if (e.target.matches('#check-btn' || '#check-circle')) {
-        target.classList.toggle('completed');
+    else if (e.target.matches('#check-btn')) {
+        // add complete state to task
+        target.classList.add('completed');
 
         // create check circle
         let done = document.createElement('span');
         done.id = 'check-circle';
+        // append to parent
         document.getElementById('check-btn').appendChild(done);
-
-        console.log(e.target);
-    } 
+    }
+    else {
+        target.classList.remove('completed');
+    }
+    
 })
 
 

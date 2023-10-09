@@ -58,7 +58,6 @@ input {
 }
 
 
-
 %span {
     width: 30px;
     height: 30px;
@@ -78,23 +77,6 @@ input {
     position: absolute;
     top: 35%;
     left: 30px;
-
-    
-    #check-circle {
-        @extend %span;
-
-        width: 15px;
-        height: 15px;
-        position: absolute;
-        top: 27%;
-        left: 8px;
-        background-color: $essential;
-
-        opacity: 1;
-        visibility: visible;
-        transition: all 2s ease-in-out;
-    }
-
 }
 
 
@@ -107,3 +89,4 @@ input {
     text-align: center;
     color: $essential;
 }
+
