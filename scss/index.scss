@@ -1,0 +1,83 @@
+@import 'global';
+@import 'button&inputs';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    max-width: 1440px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.container {
+    width: 1440px;
+    height: auto;
+}
+
+.inputs-tab {
+    width: 100%;
+    height: 300px;
+    background-color: $primary;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content:flex-start;
+
+    padding: 70px 100px;
+    border-bottom-left-radius: 150px;
+}
+
+
+.outputs-tab {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+
+    padding: 20px 100px;
+    border-top-right-radius: 150px;
+    margin-top: 50px;
+    background-color: $primary;
+
+    .task {
+        position: relative;
+        width: 100%;
+        padding: 25px 20px;
+        margin-bottom: 10px;
+
+        background-color: $essential;
+        color: $universal;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p {
+            text-indent: 80px;
+            font-size: 30px;
+            letter-spacing:2px;
+            word-spacing: 3px;
+        }
+
+        &:first-of-type {
+            border-top-right-radius: 40px;
+            border-top-left-radius: 40px;
+        }
+
+        &:last-of-type {
+            border-bottom-right-radius: 40px;
+            border-bottom-left-radius: 40px;
+        }
+
+        &.deleted {
+            transform: translateX(-200%);
+            transition: all 1s ease-out;
+        }
+
+    }
+
+
+}

@@ -1,0 +1,113 @@
+
+button {
+    width: 150px;
+    height: 50px;
+
+    border: 0;
+    border-bottom: 2px solid $essential;
+    border-radius: 40px;
+
+    background-color:lighten($primary, 5%);
+    color: $essential;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+
+    &:hover {
+        transform: scale(.97);
+        cursor: pointer;
+        background-color: $essential;
+        color: $universal;
+        border-bottom: 3px solid $universal;
+    }
+}
+
+
+
+
+input {
+    width: 600px;
+    height: 45px;
+    padding: 0 20px;
+    margin-right: 20px;
+
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid $essential;
+    border-radius: 40px;
+
+    background-color:lighten($primary, 5%);
+    color: $essential;
+
+    font-size: 18px;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: capitalize;
+    font-style: italic;
+
+    &::-webkit-input-placeholder {
+        color: $essential;
+        opacity: 50%;
+    }
+
+    &:focus {
+        background-color:$essential;
+        color: $universal;
+        border-bottom: 3px solid $universal; 
+    }
+}
+
+
+
+%span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    background-color: lighten($primary, 10%);
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(.90)
+    }
+}
+
+
+#check-btn {
+    @extend %span;
+    position: absolute;
+    top: 35%;
+    left: 30px;
+
+    
+    #check-circle {
+        @extend %span;
+
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 27%;
+        left: 8px;
+        background-color: $essential;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease-in-out;
+    }
+
+    #check-btn.active #check-circle {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+
+#delete-btn {
+    @extend %span;
+    background-color: $secondary;
+
+    padding: 8px;
+    text-align: center;
+    color: $essential;
+}
