@@ -74,7 +74,12 @@ body {
 
         &.deleted {
             transform: translateX(-200%);
-            transition: all 1s ease-out;
+            transition: all 1s ease-in-out;
+        }
+
+        &.completed p {
+            text-decoration: line-through;
+            opacity: 50%;
         }
 
     }

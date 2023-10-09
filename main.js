@@ -46,20 +46,32 @@ addTask.addEventListener('click', e => {
 })
 
 
-// delete event
 outputsTab.addEventListener('click', e => {
+    let target = e.target.parentElement;
 
+    // delete event
     if(e.target.matches('#delete-btn')) {
-        let target = e.target.parentElement;
         target.classList.add('deleted');
 
         setTimeout(() => {
             outputsTab.removeChild(target)
-        }, 500);
+        }, 800);
 
     } 
 
-    else {
-        console.log('ha ha ha you did rubbish')
-    }
+    // completed event
+    else if (e.target.matches('#check-btn' || '#check-circle')) {
+        target.classList.toggle('completed');
+
+        // create check circle
+        let done = document.createElement('span');
+        done.id = 'check-circle';
+        document.getElementById('check-btn').appendChild(done);
+
+        console.log(e.target);
+    } 
 })
+
+
+
+
