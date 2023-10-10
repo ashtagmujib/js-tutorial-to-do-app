@@ -1,7 +1,7 @@
 const outputsTab = document.querySelector('.outputs-tab'),
     taskData = document.querySelector('.task-data'),
     taskCount = document.querySelector('.task-count'),
-    //taskData = document.querySelector('.task-data'),
+    completeCount = document.querySelector('.complete-count'),
     taskInput = document.getElementById('task-input'),
 addTask = document.getElementById('add-task');
 
@@ -66,6 +66,7 @@ addTask.addEventListener('click', e => {
         // add task count
         let toDo = Array.from(document.querySelectorAll('.task'));
         taskCount.innerText = `${toDo.length} task added`;
+        
 
     }
     
@@ -93,9 +94,10 @@ outputsTab.addEventListener('click', e => {
 
         // remove from task count
         let toDo = Array.from(document.querySelectorAll('.task'));
-        taskCount.innerText = `${toDo.length -1}  task added`;
-       
+        let finished = Array.from(document.querySelectorAll('.completed'));
 
+        taskCount.innerText = `${toDo.length -1}  task added`;
+        completeCount.innerText = `${finished.length -1}  completed`;
     } 
 
 
@@ -104,14 +106,15 @@ outputsTab.addEventListener('click', e => {
         // add complete state to task
         target.classList.add('completed');
 
-        // create check circle
-        let done = document.createElement('span');
-        done.id = 'check-circle';
-        // append to parent
-        document.getElementById('check-btn').appendChild(done);
+        // create div for completed task count
+        let finished = Array.from(document.querySelectorAll('.completed'));
+        completeCount.innerText = `${finished.length}  completed`;
+        
     }
     else {
+        let finished = Array.from(document.querySelectorAll('.completed'));
         target.classList.remove('completed');
+        completeCount.innerText = `${finished.length -1}  completed`;
     }
     
 })
