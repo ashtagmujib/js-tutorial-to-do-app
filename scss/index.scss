@@ -25,11 +25,35 @@ body {
     background-color: $primary;
 
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content:flex-start;
 
-    padding: 70px 100px;
+    padding:0 100px;
     border-bottom-left-radius: 150px;
+
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+    padding:0;
+    height: 70px;
+    margin: 50px 0 20px 0;
+}
+
+.input-control.error #task-input {
+    border-color: red;
+}
+
+.input-control.success #task-input {
+    border-color: $essential;
+}
+
+.error {
+    color: red;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-style: italic;
 }
 
 
@@ -38,7 +62,7 @@ body {
     height: auto;
     overflow-x: hidden;
 
-    padding: 20px 100px;
+    padding: 50px 100px;
     border-top-right-radius: 150px;
     margin-top: 50px;
     background-color: $primary;
@@ -91,6 +115,25 @@ body {
     }
 
 
+}
+
+.task-data {
+    width: 100%;
+    height: 50px;
+    padding: 10px 100px;
+
+    background-color: $primary;
+    margin-top: 50px;
+
+    display: flex;
+    align-items: center;
+
+    .task-count {
+        color: $essential;
+        letter-spacing: 2px;
+        font-size: 12px;
+        word-spacing: 3px
+    }
 }
 
 @import 'mobile';

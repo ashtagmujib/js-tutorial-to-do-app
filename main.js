@@ -1,12 +1,36 @@
-const outputsTab = document.querySelector('.outputs-tab')
-const taskInput = document.getElementById('task-input');
-const addTask = document.getElementById('add-task');
+const outputsTab = document.querySelector('.outputs-tab'),
+    taskData = document.querySelector('.task-data'),
+    taskCount = document.querySelector('.task-count'),
+    //taskData = document.querySelector('.task-data'),
+    taskInput = document.getElementById('task-input'),
+addTask = document.getElementById('add-task');
 
 
 
 addTask.addEventListener('click', e => {
 
+    const setError = (element, message) => {
+        const inputcontrol = element.parentElement;
+        errorDisplay = inputcontrol.querySelector('.error');
+    
+        errorDisplay.innerText = message;
+        inputcontrol.classList.add('error');
+        inputcontrol.classList.remove('success');
+    }
+
+    const setSuccess = element => {
+        const inputcontrol = element.parentElement;
+        errorDisplay = inputcontrol.querySelector('.error');
+    
+        errorDisplay.innerText = '';
+        inputcontrol.classList.remove('error');
+        inputcontrol.classList.add('success');
+    }
+
+
     if(taskInput.value != '') {
+        // set success state 
+        setSuccess (taskInput);
 
         // create output elements
         const task = document.createElement('div');
@@ -31,19 +55,29 @@ addTask.addEventListener('click', e => {
         // append taskbar to outputs tab in DOM
         outputsTab.appendChild(task);
 
-
         // get input value and display in output tab
         let taskDts = taskInput.value;
         taskoutput.innerText = taskDts;
 
+        // clear inputab
+        taskInput.value = '';
+
+
+        // add task count
+        let toDo = Array.from(document.querySelectorAll('.task'));
+        taskCount.innerText = `${toDo.length} task added`;
+
     }
     
     else {
-        alert('please enter task')
+       setError (taskInput, 'field cannot be empty');
+        
     }
 
 
+
 })
+
 
 
 outputsTab.addEventListener('click', e => {
@@ -56,6 +90,11 @@ outputsTab.addEventListener('click', e => {
         setTimeout(() => {
             outputsTab.removeChild(target)
         }, 800);
+
+        // remove from task count
+        let toDo = Array.from(document.querySelectorAll('.task'));
+        taskCount.innerText = `${toDo.length -1}  task added`;
+       
 
     } 
 
