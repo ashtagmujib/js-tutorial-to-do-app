@@ -16,6 +16,16 @@
         border-bottom-left-radius: 50px;
     }
 
+    .input-control {
+        height: 80px;
+        padding: 25px 0 0;
+    }
+    
+    .error {
+        font-size: 12px;
+    }
+    
+
 
     .outputs-tab {
         padding: 20px;
@@ -24,7 +34,7 @@
     
         .task {
             padding: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
     
             p {
                 text-indent: 50px;
@@ -80,6 +90,13 @@
         @extend %span;
         padding: 5px 0px;
         font-size: 10px;
+    }
+
+
+    .task-data {
+        height: 30px;
+        padding: 10px 20px;
+        margin-top: 20px;
     }
 
 }

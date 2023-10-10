@@ -34,15 +34,15 @@ body {
 }
 
 .input-control {
+    height: 100px;
     display: flex;
     flex-direction: column;
-    padding:0;
-    height: 70px;
-    margin: 50px 0 20px 0;
+    margin: 0;
+    padding: 25px 0 0;
 }
 
 .input-control.error #task-input {
-    border-color: red;
+    border-color: darken($primary, 30%);
 }
 
 .input-control.success #task-input {
@@ -50,7 +50,7 @@ body {
 }
 
 .error {
-    color: red;
+    color: darken($primary, 30%);
     font-size: 20px;
     letter-spacing: 2px;
     font-style: italic;
@@ -108,7 +108,7 @@ body {
         }
 
         &.completed #check-btn {
-            background-color: lighten($secondary, 20%) ;
+            background-color: darken($primary, 40%) ;
         }
 
 
@@ -127,8 +127,9 @@ body {
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    .task-count {
+    .count {
         color: $essential;
         letter-spacing: 2px;
         font-size: 12px;
