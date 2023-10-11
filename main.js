@@ -4,6 +4,7 @@ const outputsTab = document.querySelector('.outputs-tab'),
     completeCount = document.querySelector('.complete-count'),
     taskInput = document.getElementById('task-input'),
 addTask = document.getElementById('add-task');
+let storedTask = [ ];
 
 
 
@@ -26,7 +27,6 @@ addTask.addEventListener('click', e => {
         inputcontrol.classList.remove('error');
         inputcontrol.classList.add('success');
     }
-
 
     if(taskInput.value != '') {
         // set success state 
@@ -66,19 +66,20 @@ addTask.addEventListener('click', e => {
         // add task count
         let toDo = Array.from(document.querySelectorAll('.task'));
         taskCount.innerText = `${toDo.length} task added`;
-        
 
+        // add task values to local storage
+       /* if(toDo.length > -1) {
+            storedTask.push(taskDts);
+        }
+
+        localStorage.setItem('store',JSON.stringify(storedTask)); */
     }
     
     else {
-       setError (taskInput, 'field cannot be empty');
-        
+       setError (taskInput, 'field cannot be empty'); 
     }
 
-
-
-})
-
+});
 
 
 outputsTab.addEventListener('click', e => {
@@ -97,7 +98,11 @@ outputsTab.addEventListener('click', e => {
         let finished = Array.from(document.querySelectorAll('.completed'));
 
         taskCount.innerText = `${toDo.length -1}  task added`;
-        completeCount.innerText = `${finished.length -1}  completed`;
+
+        if(target.classList.contains('completed')) {
+            completeCount.innerText = `${finished.length -1}  completed`;
+        }
+        
     } 
 
 
@@ -116,6 +121,7 @@ outputsTab.addEventListener('click', e => {
         target.classList.remove('completed');
         completeCount.innerText = `${finished.length -1}  completed`;
     }
+    
     
 })
 
