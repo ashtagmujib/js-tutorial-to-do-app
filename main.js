@@ -3,13 +3,20 @@ const outputsTab = document.querySelector('.outputs-tab'),
     taskCount = document.querySelector('.task-count'),
     completeCount = document.querySelector('.complete-count'),
     taskInput = document.getElementById('task-input'),
-addTask = document.getElementById('add-task');
-let storedTask = [ ];
+    addTask = document.getElementById('add-task'),
+
+    filterTab = document.querySelector('.filter'),
+    filterAll = document.querySelector('.filter-all'),
+    filterComplete = document.querySelector('.filter-complete'),
+    filterIncomplete = document.querySelector('.filter-incomplete'),
+    filterActive = document.querySelector('.filter-active')
+;
 
 
 
 addTask.addEventListener('click', e => {
 
+    // validate input
     const setError = (element, message) => {
         const inputcontrol = element.parentElement;
         errorDisplay = inputcontrol.querySelector('.error');
@@ -67,12 +74,6 @@ addTask.addEventListener('click', e => {
         let toDo = Array.from(document.querySelectorAll('.task'));
         taskCount.innerText = `${toDo.length} task added`;
 
-        // add task values to local storage
-       /* if(toDo.length > -1) {
-            storedTask.push(taskDts);
-        }
-
-        localStorage.setItem('store',JSON.stringify(storedTask)); */
     }
     
     else {
@@ -126,5 +127,53 @@ outputsTab.addEventListener('click', e => {
 })
 
 
+
+
+// filter items
+filterTab.addEventListener('click', e => {
+    let complete = document.querySelector('.completed');
+    let task = Array.from(document.querySelectorAll('.task'));
+
+    if(e.target.classList.contains('filter-complete')) {
+
+        task.forEach(todo => {
+            if(todo.classList.contains('completed')) {
+                todo.style.display = 'flex';
+            } 
+            else {
+                todo.style.display = 'none';
+                //outputsTab.removeChild(todo);
+            }
+        });
+        
+    }
+
+    if(e.target.classList.contains('filter-incomplete')) {
+
+        task.forEach(todo => {
+            if(todo.classList.contains('completed')) {
+                //outputsTab.removeChild(todo);
+                todo.style.display = 'none';
+            } 
+            else {
+                todo.style.display = 'flex';
+            }
+        });
+        
+    } 
+
+    if (e.target.classList.contains('filter-all')){
+        task.forEach(todo => {
+            todo.style.display = 'flex';
+        });
+    }
+   
+
+
+
+    //console.log(complete);
+    //console.log(task);
+
+})
 
 

@@ -135,6 +135,19 @@ body {
         font-size: 12px;
         word-spacing: 3px
     }
+
+    
+    .filter {
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & p:hover {
+            cursor: pointer;
+            color: darken($primary, 40%);
+        }
+    }
 }
 
 @import 'mobile';
