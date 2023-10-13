@@ -13,7 +13,6 @@ const outputsTab = document.querySelector('.outputs-tab'),
 ;
 
 
-
 addTask.addEventListener('click', e => {
 
     // validate input
@@ -83,6 +82,7 @@ addTask.addEventListener('click', e => {
 });
 
 
+
 outputsTab.addEventListener('click', e => {
     let target = e.target.parentElement;
 
@@ -103,7 +103,6 @@ outputsTab.addEventListener('click', e => {
         if(target.classList.contains('completed')) {
             completeCount.innerText = `${finished.length -1}  completed`;
         }
-        
     } 
 
 
@@ -168,11 +167,6 @@ filterTab.addEventListener('click', e => {
         });
     }
    
-
-
-
-    //console.log(complete);
-    //console.log(task);
 
 })
 
