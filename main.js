@@ -9,8 +9,10 @@ const outputsTab = document.querySelector('.outputs-tab'),
     filterAll = document.querySelector('.filter-all'),
     filterComplete = document.querySelector('.filter-complete'),
     filterIncomplete = document.querySelector('.filter-incomplete'),
-    filterActive = document.querySelector('.filter-active')
+    filterActive = document.querySelector('.filter-active'),
+    taskStore = [];
 ;
+
 
 
 addTask.addEventListener('click', e => {
@@ -73,6 +75,11 @@ addTask.addEventListener('click', e => {
         let toDo = Array.from(document.querySelectorAll('.task'));
         taskCount.innerText = `${toDo.length} task added`;
 
+
+        // add task to local storage
+        taskStore.push(taskDts);
+        localStorage.setItem('task', JSON.stringify(taskStore));
+
     }
     
     else {
@@ -81,6 +88,43 @@ addTask.addEventListener('click', e => {
 
 });
 
+
+
+let parsedTask = JSON.parse(localStorage.getItem('task'));
+
+//console.log(parsedTask)
+//console.log(localStorage)
+
+if (parsedTask) {
+    parsedTask.forEach(todo => {
+        // create output elements
+        const task = document.createElement('div');
+        task.classList = 'task';
+
+        const checkBtn = document.createElement('span');
+        checkBtn.id = 'check-btn';
+
+        const taskoutput = document.createElement('p');
+        taskoutput.id = 'task-output';
+
+        const deleteBtn = document.createElement('span');
+        deleteBtn.id = 'delete-btn';
+        deleteBtn.innerText = 'X';
+
+
+        // append children to task bar
+        task.appendChild(checkBtn);
+        task.appendChild(taskoutput);
+        task.appendChild(deleteBtn);
+
+        // append taskbar to outputs tab in DOM
+        outputsTab.appendChild(task);
+
+        // get input value and display in output tab
+        let taskDts = taskInput.value;
+        taskoutput.innerText = todo;
+    })
+}
 
 
 outputsTab.addEventListener('click', e => {
