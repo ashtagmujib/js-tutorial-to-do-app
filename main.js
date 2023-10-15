@@ -92,11 +92,14 @@ addTask.addEventListener('click', e => {
 
 let parsedTask = JSON.parse(localStorage.getItem('task'));
 
-//console.log(parsedTask)
-//console.log(localStorage)
+console.log(parsedTask)
+console.log(localStorage)
+console.log(taskStore)
 
 if (parsedTask) {
     parsedTask.forEach(todo => {
+
+        taskStore.push(todo);
         // create output elements
         const task = document.createElement('div');
         task.classList = 'task';
@@ -121,9 +124,12 @@ if (parsedTask) {
         outputsTab.appendChild(task);
 
         // get input value and display in output tab
-        let taskDts = taskInput.value;
         taskoutput.innerText = todo;
-    })
+
+        taskCount.innerText = `${taskStore.length} task added`;
+
+        if()
+    }
 }
 
 
@@ -174,7 +180,6 @@ outputsTab.addEventListener('click', e => {
 
 // filter items
 filterTab.addEventListener('click', e => {
-    let complete = document.querySelector('.completed');
     let task = Array.from(document.querySelectorAll('.task'));
 
     if(e.target.classList.contains('filter-complete')) {
