@@ -89,17 +89,22 @@ addTask.addEventListener('click', e => {
 });
 
 
+// remove task from local storage
+// const removelocalTask = () => {
+    
+// }
+
 
 let parsedTask = JSON.parse(localStorage.getItem('task'));
 
 console.log(parsedTask)
 console.log(localStorage)
-console.log(taskStore)
 
 if (parsedTask) {
     parsedTask.forEach(todo => {
 
         taskStore.push(todo);
+
         // create output elements
         const task = document.createElement('div');
         task.classList = 'task';
@@ -128,8 +133,9 @@ if (parsedTask) {
 
         taskCount.innerText = `${taskStore.length} task added`;
 
-        if()
-    }
+    })
+
+    
 }
 
 
@@ -153,7 +159,12 @@ outputsTab.addEventListener('click', e => {
         if(target.classList.contains('completed')) {
             completeCount.innerText = `${finished.length -1}  completed`;
         }
+
+        removelocalTask()
+
     } 
+
+
 
 
     // completed event
