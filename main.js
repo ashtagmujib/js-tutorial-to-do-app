@@ -89,16 +89,9 @@ addTask.addEventListener('click', e => {
 });
 
 
-// remove task from local storage
-// const removelocalTask = () => {
-    
-// }
-
 
 let parsedTask = JSON.parse(localStorage.getItem('task'));
 
-console.log(parsedTask)
-console.log(localStorage)
 
 if (parsedTask) {
     parsedTask.forEach(todo => {
@@ -160,7 +153,7 @@ outputsTab.addEventListener('click', e => {
             completeCount.innerText = `${finished.length -1}  completed`;
         }
 
-        removelocalTask()
+        
 
     } 
 
